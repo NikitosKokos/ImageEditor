@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('_head.html',{
+	"title":"Image Editor"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('_header.html',{})
+			<main class="page">
+				<div class="image-editor">
+					<div class="image-editor__drop-area"></div>
+					<div class='image-editor__container _container disabled'>
+						<h2 class="image-editor__title">Image Editor</h2>
+						<div class="image-editor__wrapper">
+							<div class="image-editor__panel panel-image-editor">
+								<div class="panel-image-editor__filter">
+									<label class="image-editor__label">Filters</label>
+									<div class="panel-image-editor__options">
+										<button id="brightness" class="panel-image-editor__btn active">Brightness</button>
+										<button id="saturation" class="panel-image-editor__btn">Saturation</button>
+										<button id="inversion" class="panel-image-editor__btn">Inversion</button>
+										<button id="grayscale" class="panel-image-editor__btn">Grayscale</button>
+									</div>
+									<div class="panel-image-editor__slider">
+										<div class="panel-image-editor__filer-info">
+											<p class="panel-image-editor__name">Brightness</p>
+											<input type="text" class="panel-image-editor__input-value"/>
+											<div class="panel-image-editor__percent">%</div>
+											<p class="panel-image-editor__value">100%</p>
+										</div>
+										<input class="panel-image-editor__input" type="range" value="100" min="0" max="200">
+									</div>
+								</div>
+								<div class="panel-image-editor__rotate">
+									<label class="image-editor__label">Rotate & Flip</label>
+									<div class="panel-image-editor__options">
+										<button id="left" class="panel-image-editor__btn"><i class="fa-solid fa-rotate-left"></i></button>
+										<button id="right" class="panel-image-editor__btn"><i class="fa-solid fa-rotate-right"></i></button>
+										<button id="horizontal" class="panel-image-editor__btn"><i class="bx bx-reflect-vertical"></i></button>
+										<button id="vertical" class="panel-image-editor__btn"><i class="bx bx-reflect-horizontal"></i></button>
+									</div>
+								</div>
+							</div>
+							<div class="image-editor__preview">
+								<img src="./img/image-placeholder.svg" alt="image placeholder" draggable="false">
+							</div>
+						</div>
+						<div class="image-editor__controls">
+							<button class="image-editor__control image-editor__reset-filter">Reset Filters</button>
+							<div class="image-editor__row">
+								<input type="file" class="image-editor__file" accept="image/*" hidden>
+								<button class="image-editor__control image-editor__choose-img">Choose Image</button>
+								<button class="image-editor__control image-editor__save-img">Save Image</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			@@include('_footer.html',{})
+		</div>
+		<!-- @@include('_popup.html',{}) -->
+		@@include('_js.html',{})
+	</body>
+</html>

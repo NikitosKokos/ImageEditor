@@ -1,0 +1,43 @@
+// base
+@import "./base/variables";
+@import "./base/mixins";
+@import "./base/fonts";
+@import "./base/icons"; 
+@import "./base/zeroing";
+// @import "./base/popup";
+// @import "./base/burger";
+@import "./base/ui";
+// libs
+// @import "./libs/";
+// blocks
+@import "./blocks/header";
+@import "./blocks/main";
+@import "./blocks/footer";
+
+
+// global styles
+._container {
+	width: $width + px;
+	margin: 0 auto;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.page {
+  flex: 1 1 auto;
+}
+
+body{
+	&._lock{
+		overflow: hidden;
+	}
+}
+
+// media
+@import "./base/media";

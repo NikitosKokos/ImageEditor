@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+	 <head>
+	<title>Image Editor</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="css/style.min.css">
+	<meta name="theme-color" content="#fff">
+	<!-- <link rel="shortcut icon" href="./img/favicon.ico"> -->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+</head>
+	<body>
+		<div class="wrapper">
+			<header class="header">
+	<div class="header__content _container">
+
+	</div>
+</header>
+			<main class="page">
+				<div class="image-editor">
+					<div class="image-editor__drop-area"></div>
+					<div class='image-editor__container _container disabled'>
+						<h2 class="image-editor__title">Image Editor</h2>
+						<div class="image-editor__wrapper">
+							<div class="image-editor__panel panel-image-editor">
+								<div class="panel-image-editor__filter">
+									<label class="image-editor__label">Filters</label>
+									<div class="panel-image-editor__options">
+										<button id="brightness" class="panel-image-editor__btn active">Brightness</button>
+										<button id="saturation" class="panel-image-editor__btn">Saturation</button>
+										<button id="inversion" class="panel-image-editor__btn">Inversion</button>
+										<button id="grayscale" class="panel-image-editor__btn">Grayscale</button>
+									</div>
+									<div class="panel-image-editor__slider">
+										<div class="panel-image-editor__filer-info">
+											<p class="panel-image-editor__name">Brightness</p>
+											<input type="text" class="panel-image-editor__input-value"/>
+											<div class="panel-image-editor__percent">%</div>
+											<p class="panel-image-editor__value">100%</p>
+										</div>
+										<input class="panel-image-editor__input" type="range" value="100" min="0" max="200">
+									</div>
+								</div>
+								<div class="panel-image-editor__rotate">
+									<label class="image-editor__label">Rotate & Flip</label>
+									<div class="panel-image-editor__options">
+										<button id="left" class="panel-image-editor__btn"><i class="fa-solid fa-rotate-left"></i></button>
+										<button id="right" class="panel-image-editor__btn"><i class="fa-solid fa-rotate-right"></i></button>
+										<button id="horizontal" class="panel-image-editor__btn"><i class="bx bx-reflect-vertical"></i></button>
+										<button id="vertical" class="panel-image-editor__btn"><i class="bx bx-reflect-horizontal"></i></button>
+									</div>
+								</div>
+							</div>
+							<div class="image-editor__preview">
+								<img src="./img/image-placeholder.svg" alt="image placeholder" draggable="false">
+							</div>
+						</div>
+						<div class="image-editor__controls">
+							<button class="image-editor__control image-editor__reset-filter">Reset Filters</button>
+							<div class="image-editor__row">
+								<input type="file" class="image-editor__file" accept="image/*" hidden>
+								<button class="image-editor__control image-editor__choose-img">Choose Image</button>
+								<button class="image-editor__control image-editor__save-img">Save Image</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer class="footer">
+	<div class="footer__content _container">
+
+	</div>
+</footer>
+		</div>
+		
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<script src="js/vendors.min.js"></script>
+<script src="js/app.min.js"></script>
+	</body>
+</html>
