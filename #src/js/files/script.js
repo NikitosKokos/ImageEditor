@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+   const imageEditorMain = document.querySelector('.image-editor');
    const editorCont = document.querySelector('.image-editor__container');
    const fileInput = document.querySelector('.image-editor__file');
    const prewiewImg = document.querySelector('.image-editor__preview img');
@@ -12,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
    const inputValue = document.querySelector('.panel-image-editor__input-value');
    const saveImgBtn = document.querySelector('.image-editor__save-img');
    const dropArea = document.querySelector('.image-editor__drop-area');
+   const changeThemeIcon = document.querySelector('.image-editor__change-theme');
+   const inputChangeTheme = document.querySelector('.image-editor__change-theme input');
 
    let brightness = 100, saturation = 100, inversion = 0, grayscale = 0;
    let rotate = 0, flipHorizontal = 1, flipVertical = 1;
@@ -54,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filterSlider.value = grayscale;
             filterValue.innerText = `${grayscale}%`;
          }
+         getCurrentSliderValue();
       });
    });
 
@@ -128,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
          filterSlider.value = value;
          filterValue.innerText = `${value}%`;
          applyFilters();
+         getCurrentSliderValue();
       }
    }
 
@@ -189,6 +194,40 @@ document.addEventListener('DOMContentLoaded', () => {
       reader.readAsDataURL(file);
    }
 
+   const changeTheme = () => {
+      if(inputChangeTheme.checked){
+         if(!localStorage.theme){
+            localStorage.setItem('theme', 'orange');
+         }else{
+            localStorage.theme = 'orange';
+         }
+         changeThemeIcon.classList.add('orange');
+         imageEditorMain.classList.add('orange');
+      }else{
+         if(!localStorage.theme){
+            localStorage.setItem('theme', 'default');
+         }else{
+            localStorage.theme = 'default';
+         }
+         changeThemeIcon.classList.remove('orange');
+         imageEditorMain.classList.remove('orange');
+      }
+   }
+
+   if(localStorage.theme === 'orange'){
+      inputChangeTheme.checked = true;
+      changeThemeIcon.classList.add('orange');
+      imageEditorMain.classList.add('orange');
+   }
+
+   const getCurrentSliderValue = () => {
+      const value = (filterSlider.value - filterSlider.min) / filterSlider.max - filterSlider.min;
+      filterSlider.style.setProperty('--value', value);
+   }
+
+   getCurrentSliderValue();
+
+   filterSlider.addEventListener('input', getCurrentSliderValue);
    fileInput.addEventListener('change', loadImage);
    filterSlider.addEventListener('input', updateFilter);
    resetFilterBtn.addEventListener('click', resetFilter);
@@ -200,5 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
    document.body.addEventListener('dragover', dragOver);
    document.body.addEventListener('dragleave', dragLeave);
    document.body.addEventListener('drop', dropHandle);
+   inputChangeTheme.addEventListener('change', changeTheme);
 
 }); // end
